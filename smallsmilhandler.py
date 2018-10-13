@@ -16,55 +16,53 @@ class SmallSMILHandler(ContentHandler):
         if name == 'root-layout':
 
             rl = {}
-            rl['width'] = ""
-            rl['height'] = ""
-            rl['background-color'] = ""
+            rl['width'] = attrs.get('width', "")
+            rl['height'] = attrs.get('height', "")
+            rl['background-color'] = attrs.get('background-color', "")
 
             self.tags.append(['root-layout', rl])
 
         elif name == 'region':
 
             rg = {}
-            rg['id'] = ""
-            rg['top'] = ""
-            rg['bottom'] = ""
-            rg['left'] = ""
-            rg['right'] = ""
+            rg['id'] = attrs.get('id', "")
+            rg['top'] = attrs.get('top', "")
+            rg['bottom'] = attrs.get('bottom', "")
+            rg['left'] = attrs.get('left', "")
+            rg['right'] = attrs.get('right', "")
 
             self.tags.append(['region', rg])
 
         elif name == 'img':
 
             im = {}
-            im['src'] = ""
-            im['region'] = ""
-            im['begin'] = ""
-            im['dur'] = ""
+            im['src'] = attrs.get('src', "")
+            im['region'] = attrs.get('region', "")
+            im['begin'] = attrs.get('begin', "")
+            im['dur'] = attrs.get('dur', "")
 
             self.tags.append(['img', im])
 
         elif name == 'audio':
 
             au = {}
-            au['src'] = ""
-            au['begin'] = ""
-            au['dur'] = ""
+            au['src'] = attrs.get('src', "")
+            au['begin'] = attrs.get('begin', "")
+            au['dur'] = attrs.get('dur', "")
 
             self.tags.append(['audio', au])
 
         elif name == 'textstream':
 
             ts = {}
-            ts['src'] = ""
-            ts['region'] = ""
+            ts['src'] = attrs.get('src', "")
+            ts['region'] = attrs.get('region', "")
 
             self.tags.append(['textstream', ts])
 
     def get_tags(self):
 
         return self.tags
-
-
 
 if __name__ == "__main__":
     """
@@ -74,3 +72,4 @@ if __name__ == "__main__":
     cHandler = SmallSMILHandler()
     parser.setContentHandler(cHandler)
     parser.parse(open('karaoke.smil'))
+    print(cHandler.get_tags())
