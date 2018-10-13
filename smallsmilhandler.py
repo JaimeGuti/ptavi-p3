@@ -15,6 +15,7 @@ class SmallSMILHandler(ContentHandler):
 
         if name == 'root-layout':
 
+            rl = {}
             rl['width'] = ""
             rl['height'] = ""
             rl['background-color'] = ""
@@ -23,6 +24,7 @@ class SmallSMILHandler(ContentHandler):
 
         elif name == 'region':
 
+            rg = {}
             rg['id'] = ""
             rg['top'] = ""
             rg['bottom'] = ""
@@ -33,6 +35,7 @@ class SmallSMILHandler(ContentHandler):
 
         elif name == 'img':
 
+            im = {}
             im['src'] = ""
             im['region'] = ""
             im['begin'] = ""
@@ -42,6 +45,7 @@ class SmallSMILHandler(ContentHandler):
 
         elif name == 'audio':
 
+            au = {}
             au['src'] = ""
             au['begin'] = ""
             au['dur'] = ""
@@ -50,14 +54,15 @@ class SmallSMILHandler(ContentHandler):
 
         elif name == 'textstream':
 
+            ts = {}
             ts['src'] = ""
             ts['region'] = ""
 
-            selfs.tags.append(['textstream', ts])
+            self.tags.append(['textstream', ts])
 
     def get_tags(self):
 
-
+        return self.tags
 
 
 
