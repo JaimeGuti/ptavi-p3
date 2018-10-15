@@ -26,10 +26,8 @@ if __name__ == "__main__":
         atributos = ""
         for atributo in elemento[1]:
             if elemento[1][atributo] != "":
-                atributos = atributos + atributo + '="'
-                atributos += elemento[1][atributo] + '"' + '\t'
-        print(etiqueta + '\t' + atributos)
+                atributos = atributos + '\\t'+ atributo + '="'
+                atributos += elemento[1][atributo] + '"'
+        print(etiqueta + atributos + '\\n')
 
     # Ejercicio 5
-    #for list in self.attrs:
-        #atributos = lista[1]
