@@ -6,7 +6,7 @@ from xml.sax.handler import ContentHandler
 import sys
 import smallsmilhandler
 import json
-from urllib.request import urlretrieve
+import urllib.request
 
 
 if __name__ == "__main__":
@@ -43,4 +43,4 @@ if __name__ == "__main__":
     for elemento in cHandler.get_tags():
         for atributo in elemento[1]:
             if elemento[1][atributo][:7] == 'http://':
-                print("OOOOOOOOKKKKK")
+                urllib.request.urlretrieve(elemento[1][atributo])
