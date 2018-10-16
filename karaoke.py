@@ -6,7 +6,7 @@ from xml.sax.handler import ContentHandler
 import sys
 import smallsmilhandler
 import json
-
+from urllib.request import urlretrieve
 
 
 if __name__ == "__main__":
@@ -38,3 +38,9 @@ if __name__ == "__main__":
     json_file = file[:-4] + ".json"
     json_file = open(json_file, 'w')
     json.dump(atributos, json_file)
+
+    # Ejercicio 5: descargar en local
+    for elemento in cHandler.get_tags():
+        for atributo in elemento[1]:
+            if elemento[1][atributo][:7] == 'http://':
+                print("OOOOOOOOKKKKK")
