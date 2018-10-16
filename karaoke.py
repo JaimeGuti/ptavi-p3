@@ -5,6 +5,9 @@ from xml.sax import make_parser
 from xml.sax.handler import ContentHandler
 import sys
 import smallsmilhandler
+import json
+
+
 
 if __name__ == "__main__":
 
@@ -12,6 +15,7 @@ if __name__ == "__main__":
         file = sys.argv[1]
     except:
         sys.exit("Usage: python3 karaoke.py file.smil")
+
 
     parser = make_parser()
     cHandler = smallsmilhandler.SmallSMILHandler()
@@ -30,4 +34,7 @@ if __name__ == "__main__":
                 atributos += elemento[1][atributo] + '"'
         print(etiqueta + atributos + '\\n')
 
-    # Ejercicio 5
+    # Funcionalidad para ficheros json
+    json_file = file[:-4] + ".json"
+    json_file = open(json_file, 'w')
+    json.dump(atributos, json_file)
